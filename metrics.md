@@ -53,6 +53,21 @@ The following metrics are proposed to be added to clients for PeerDAS monitoring
 | `beacon_engine_getBlobsV2_responses_total` | Counter | Total number of `engine_getBlobsV2` successful responses received | On receiving `engine_getBlobsV2` responses |
 | `beacon_engine_getBlobsV2_request_duration_seconds` | Histogram | Duration of `engine_getBlobsV2` requests | On `engine_getBlobsV2` request completion
 
+#### Partial Data Column metrics (aka Cell-Level Dissemination)
+
+| Name                                                | Metric type | Usage                                                                                  | Sample collection event                    |
+| --------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `beacon_engine_getBlobsV3_requests_total`           | Counter     | Total number of `engine_getBlobsV3` requests sent                                      | On sending `engine_getBlobsV3` requests    |
+| `beacon_engine_getBlobsV3_complete_responses_total` | Counter     | Total number of complete `engine_getBlobsV3` successful responses received             | On receiving `engine_getBlobsV3` responses |
+| `beacon_engine_getBlobsV3_partial_responses_total`  | Counter     | Total number of `engine_getBlobsV3` partial responses received                         | On receiving `engine_getBlobsV3` responses |
+| `beacon_engine_getBlobsV3_request_duration_seconds` | Histogram   | Duration of `engine_getBlobsV3` requests                                               | On `engine_getBlobsV3` request completion  |
+| `gossipsub_pubsub_rpc_sent_pub_size_total`          | Counter     | Total size of publish messages sent via RPC. Labels: `topic`, `is_partial` (bool)      | On pubsub RPC publish                      |
+| `gossipsub_mesh_partial_message_capable_peers`      | Gauge       | Number of partial-message capable peers in mesh. Labels: `topic`                       | On mesh peer update                        |
+| `beacon_partial_message_useful_cells_total`         | Counter     | Number of useful cells received via a partial message. Labels: `column_index`          | On useful partial message reception        |
+| `beacon_partial_message_cells_received_total`       | Counter     | Number of total cells received via a partial message. Labels: `column_index`           | On partial message reception               |
+| `beacon_useful_full_columns_received_total`         | Counter     | Number of useful full columns (any cell being useful) received. Labels: `column_index` | On useful full column reception            |
+| `beacon_partial_message_column_completions_total`   | Counter     | How often the partial message first completed the column. Labels: `column_index`       | On column completion by partial message    |
+
 ### Additional Metrics
 
 The following are proposed metrics to be added to clients. This list is _not_ stable and is subject to drastic changes, deletions, and additions. The additional metric list is being
