@@ -61,8 +61,8 @@ The following metrics are proposed to be added to clients for PeerDAS monitoring
 | `beacon_engine_getBlobsV3_complete_responses_total` | Counter     | Total number of complete `engine_getBlobsV3` successful responses received             | On receiving `engine_getBlobsV3` responses |
 | `beacon_engine_getBlobsV3_partial_responses_total`  | Counter     | Total number of `engine_getBlobsV3` partial responses received                         | On receiving `engine_getBlobsV3` responses |
 | `beacon_engine_getBlobsV3_request_duration_seconds` | Histogram   | Duration of `engine_getBlobsV3` requests                                               | On `engine_getBlobsV3` request completion  |
-| `gossipsub_pubsub_rpc_sent_pub_size_total`          | Counter     | Total size of publish messages sent via RPC. Labels: `topic`, `is_partial` (bool)      | On pubsub RPC publish                      |
-| `gossipsub_mesh_partial_message_capable_peers`      | Gauge       | Number of partial-message capable peers in mesh. Labels: `topic`                       | On mesh peer update                        |
+| `gossipsub_topic_msg_sent_bytes`                    | Counter     | Total size of publish messages sent via RPC. Labels: `topic`, `partial`                | On pubsub RPC publish                      |
+| `gossipsub_mesh_peer_counts`                        | Gauge       | Number of partial-message capable peers in mesh. Labels: `topic`, `supports_partial`   | On mesh peer update                        |
 | `beacon_partial_message_useful_cells_total`         | Counter     | Number of useful cells received via a partial message. Labels: `column_index`          | On useful partial message reception        |
 | `beacon_partial_message_cells_received_total`       | Counter     | Number of total cells received via a partial message. Labels: `column_index`           | On partial message reception               |
 | `beacon_useful_full_columns_received_total`         | Counter     | Number of useful full columns (any cell being useful) received. Labels: `column_index` | On useful full column reception            |
